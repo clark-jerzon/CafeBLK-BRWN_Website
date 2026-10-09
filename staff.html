@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Staff dashboard | Café BLK &amp; BRWN</title>
+  <meta name="description" content="Staff dashboard for Café BLK &amp; BRWN: today’s reservations, customer records, reports and admin controls.">
+  <meta name="theme-color" content="#0b0806">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Staff dashboard | Café BLK &amp; BRWN">
+  <meta property="og:description" content="Staff dashboard for Café BLK &amp; BRWN: today’s reservations, customer records, reports and admin controls.">
+  <meta property="og:image" content="assets/images/hero.jpg">
+  <link rel="icon" href="assets/images/logo.jpg">
+  <link rel="preload" href="assets/fonts/PlayfairDisplay-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Café BLK &amp; BRWN, home">
+      <img src="assets/images/logo.jpg" alt="" width="48" height="48">
+      <span>
+        <span class="brand__name">BLK &amp; BRWN</span>
+        <span class="brand__tag">COFFEE · COMMUNITY · COMFORT</span>
+      </span>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">Our story</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="branches.html">Branches</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+
+        </ul>
+    </nav>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="icon i-menu" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <main id="main">
+    <header class="container page-intro">
+      <div class="stack">
+        <p class="eyebrow"><span class="icon i-lock" aria-hidden="true"></span> Staff access</p>
+        <h1>Reservation <span class="accent">dashboard.</span></h1>
+        <p class="lead">Saturday, October 10, 2026 · All branches</p>
+      </div>
+      <div class="cluster page-intro__actions">
+        <a class="btn btn--primary btn--lg" href="#schedule"><span class="icon i-bell" aria-hidden="true"></span> Review 4 pending requests</a>
+        <a class="btn btn--secondary btn--lg" href="#reports"><span class="icon i-bar-chart" aria-hidden="true"></span> View reports</a>
+      </div>
+    </header>
+
+    <div class="container dash">
+      <nav class="dash__nav glass" aria-label="Dashboard sections">
+        <ul>
+          <li><a href="#overview"><span class="icon i-trending-up" aria-hidden="true"></span> Overview</a></li>
+          <li><a href="#schedule"><span class="icon i-calendar" aria-hidden="true"></span> Schedule</a></li>
+          <li><a href="#customers"><span class="icon i-users" aria-hidden="true"></span> Customers</a></li>
+          <li><a href="#reports"><span class="icon i-bar-chart" aria-hidden="true"></span> Reports</a></li>
+          <li><a href="#controls"><span class="icon i-settings" aria-hidden="true"></span> Admin controls</a></li>
+        </ul>
+      </nav>
+
+      <div class="dash__main">
+        <!-- Overview: the three numbers staff check first, as large as possible. -->
+        <section id="overview" aria-labelledby="overview-title">
+          <div class="dash__title"><h2 id="overview-title">Today at a glance</h2></div>
+          <div class="kpi-grid">
+            <article class="kpi glass">
+              <p class="kpi__label"><span class="icon i-calendar" aria-hidden="true"></span> Reserved today</p>
+              <p class="kpi__value">11</p>
+              <p class="kpi__meta">7 confirmed · 4 awaiting review</p>
+            </article>
+            <article class="kpi kpi--alert glass">
+              <p class="kpi__label"><span class="icon i-hourglass" aria-hidden="true"></span> Awaiting review</p>
+              <p class="kpi__value">4</p>
+              <p class="kpi__meta">Guests are waiting for a reply</p>
+              <span class="status status--pending kpi__tag"><span class="icon i-bell" aria-hidden="true"></span> Needs action</span>
+            </article>
+            <article class="kpi glass">
+              <p class="kpi__label"><span class="icon i-users" aria-hidden="true"></span> Expected guests</p>
+              <p class="kpi__value">46</p>
+              <p class="kpi__meta">Across 11 active reservations</p>
+            </article>
+          </div>
+          <dl class="mini-stats">
+            <div class="mini-stat glass"><dt>Confirmed</dt><dd>7</dd></div>
+            <div class="mini-stat glass"><dt>Cancelled</dt><dd>1</dd></div>
+            <div class="mini-stat glass"><dt>Average party size</dt><dd>4.2 guests</dd></div>
+            <div class="mini-stat glass"><dt>Busiest time this week</dt><dd>3–5 PM</dd></div>
+          </dl>
+        </section>
+
+        <section id="schedule" aria-labelledby="schedule-title">
+          <div class="dash__title">
+            <h2 id="schedule-title">Reservation schedule</h2>
+            <ul class="legend" aria-label="Status key">
+              <li><span class="icon i-check-circle" aria-hidden="true"></span> Confirmed 7</li>
+              <li><span class="icon i-hourglass" aria-hidden="true"></span> Awaiting review 4</li>
+              <li><span class="icon i-ban" aria-hidden="true"></span> Cancelled 1</li>
+            </ul>
+          </div>
+          <div class="glass table-wrap">
+            <table class="data-table">
+              <caption class="visually-hidden">Reservations for Saturday, October 10, 2026</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Reference</th>
+                  <th scope="col">Guest</th>
+                  <th scope="col">Branch</th>
+                  <th scope="col">Time</th>
+                  <th scope="col" class="num">Guests</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+            <tr>
+              <td data-label="Reference" class="ref">BNB-1010-001</td>
+              <td data-label="Guest"><strong>Ana Reyes</strong></td>
+              <td data-label="Branch">Capipisa, Tanza</td>
+              <td data-label="Time">9:30 AM</td>
+              <td data-label="Guests" class="num">2</td>
+              <td data-label="Status"><span class="status status--confirmed"><span class="icon i-check-circle" aria-hidden="true"></span> Confirmed</span></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--secondary btn--sm" type="button"><span class="icon i-edit" aria-hidden="true"></span> Manage</button></div></td>
+            </tr>
+            <tr>
+              <td data-label="Reference" class="ref">BNB-1010-002</td>
+              <td data-label="Guest"><strong>Mark Villanueva</strong></td>
+              <td data-label="Branch">SM City Tanza</td>
+              <td data-label="Time">10:30 AM</td>
+              <td data-label="Guests" class="num">3</td>
+              <td data-label="Status"><span class="status status--confirmed"><span class="icon i-check-circle" aria-hidden="true"></span> Confirmed</span></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--secondary btn--sm" type="button"><span class="icon i-edit" aria-hidden="true"></span> Manage</button></div></td>
+            </tr>
+            <tr class="needs-review">
+              <td data-label="Reference" class="ref">BNB-1010-003</td>
+              <td data-label="Guest"><strong>Carla Mendoza</strong></td>
+              <td data-label="Branch">Kawit</td>
+              <td data-label="Time">11:00 AM</td>
+              <td data-label="Guests" class="num">2</td>
+              <td data-label="Status"><span class="status status--pending"><span class="icon i-hourglass" aria-hidden="true"></span> Awaiting review</span></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--primary btn--sm" type="button"><span class="icon i-check" aria-hidden="true"></span> Approve</button><button class="btn btn--secondary btn--sm" type="button" aria-label="Decline Carla Mendoza"><span class="icon i-x" aria-hidden="true"></span></button></div></td>
+            </tr>
+            <tr>
+              <td data-label="Reference" class="ref">BNB-1010-004</td>
+              <td data-label="Guest"><strong>Paolo Bautista</strong></td>
+              <td data-label="Branch">General Trias</td>
+              <td data-label="Time">12:30 PM</td>
+              <td data-label="Guests" class="num">6</td>
+              <td data-label="Status"><span class="status status--confirmed"><span class="icon i-check-circle" aria-hidden="true"></span> Confirmed</span></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--secondary btn--sm" type="button"><span class="icon i-edit" aria-hidden="true"></span> Manage</button></div></td>
+            </tr>
+            <tr>
+              <td data-label="Reference" class="ref">BNB-1010-005</td>
+              <td data-label="Guest"><strong>Juan Dela Cruz</strong></td>
+              <td data-label="Branch">Naic</td>
+              <td data-label="Time">2:00 PM</td>
+              <td data-label="Guests" class="num">4</td>
+              <td data-label="Status"><span class="status status--confirmed"><span class="icon i-check-circle" aria-hidden="true"></span> Confirmed</span></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--secondary btn--sm" type="button"><span class="icon i-edit" aria-hidden="true"></span> Manage</button></div></td>
+            </tr>
+            <tr class="needs-review">
+              <td data-label="Reference" class="ref">BNB-1010-006</td>
+              <td data-label="Guest"><strong>Liza Ramos</strong></td>
+              <td data-label="Branch">Festival Mall, Alabang</td>
+              <td data-label="Time">2:30 PM</td>
+              <td data-label="Guests" class="num">3</td>
+              <td data-label="Status"><span class="status status--pending"><span class="icon i-hourglass" aria-hidden="true"></span> Awaiting review</span></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--primary btn--sm" type="button"><span class="icon i-check" aria-hidden="true"></span> Approve</button><button class="btn btn--secondary btn--sm" type="button" aria-label="Decline Liza Ramos"><span class="icon i-x" aria-hidden="true"></span></button></div></td>
+            </tr>
+            <tr>
+              <td data-label="Reference" class="ref">BNB-1010-007</td>
+              <td data-label="Guest"><strong>Rico Navarro</strong></td>
+              <td data-label="Branch">Trece Martires</td>
+              <td data-label="Time">3:00 PM</td>
+              <td data-label="Guests" class="num">5</td>
+              <td data-label="Status"><span class="status status--confirmed"><span class="icon i-check-circle" aria-hidden="true"></span> Confirmed</span></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--secondary btn--sm" type="button"><span class="icon i-edit" aria-hidden="true"></span> Manage</button></div></td>
+            </tr>
+            <tr class="needs-review">
+              <td data-label="Reference" class="ref">BNB-1010-008</td>
+              <td data-label="Guest"><strong>Bea Castillo</strong></td>
+              <td data-label="Branch">Capipisa, Tanza</td>
+              <td data-label="Time">4:00 PM</td>
+              <td data-label="Guests" class="num">4</td>
+              <td data-label="Status"><span class="status status--pending"><span class="icon i-hourglass" aria-hidden="true"></span> Awaiting review</span></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--primary btn--sm" type="button"><span class="icon i-check" aria-hidden="true"></span> Approve</button><button class="btn btn--secondary btn--sm" type="button" aria-label="Decline Bea Castillo"><span class="icon i-x" aria-hidden="true"></span></button></div></td>
+            </tr>
+            <tr>
+              <td data-label="Reference" class="ref">BNB-1010-009</td>
+              <td data-label="Guest"><strong>Miguel Santos</strong></td>
+              <td data-label="Branch">Naic</td>
+              <td data-label="Time">5:30 PM</td>
+              <td data-label="Guests" class="num">8</td>
+              <td data-label="Status"><span class="status status--confirmed"><span class="icon i-check-circle" aria-hidden="true"></span> Confirmed</span></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--secondary btn--sm" type="button"><span class="icon i-edit" aria-hidden="true"></span> Manage</button></div></td>
+            </tr>
+            <tr>
+              <td data-label="Reference" class="ref">BNB-1010-010</td>
+              <td data-label="Guest"><strong>Grace Aquino</strong></td>
+              <td data-label="Branch">SM City Tanza</td>
+              <td data-label="Time">6:00 PM</td>
+              <td data-label="Guests" class="num">2</td>
+              <td data-label="Status"><span class="status status--cancelled"><span class="icon i-ban" aria-hidden="true"></span> Cancelled</span></td>
+              <td data-label="Action"><div class="row-actions"><span class="muted small">No action needed</span></div></td>
+            </tr>
+            <tr class="needs-review">
+              <td data-label="Reference" class="ref">BNB-1010-011</td>
+              <td data-label="Guest"><strong>Jerome Lim</strong></td>
+              <td data-label="Branch">Trece Martires</td>
+              <td data-label="Time">7:00 PM</td>
+              <td data-label="Guests" class="num">6</td>
+              <td data-label="Status"><span class="status status--pending"><span class="icon i-hourglass" aria-hidden="true"></span> Awaiting review</span></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--primary btn--sm" type="button"><span class="icon i-check" aria-hidden="true"></span> Approve</button><button class="btn btn--secondary btn--sm" type="button" aria-label="Decline Jerome Lim"><span class="icon i-x" aria-hidden="true"></span></button></div></td>
+            </tr>
+            <tr>
+              <td data-label="Reference" class="ref">BNB-1010-012</td>
+              <td data-label="Guest"><strong>Nina Garcia</strong></td>
+              <td data-label="Branch">General Trias</td>
+              <td data-label="Time">7:30 PM</td>
+              <td data-label="Guests" class="num">3</td>
+              <td data-label="Status"><span class="status status--confirmed"><span class="icon i-check-circle" aria-hidden="true"></span> Confirmed</span></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--secondary btn--sm" type="button"><span class="icon i-edit" aria-hidden="true"></span> Manage</button></div></td>
+            </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="customers" aria-labelledby="customers-title">
+          <div class="dash__title">
+            <h2 id="customers-title">Customer records</h2>
+            <p class="muted">Guests with a booking today. Records are visible to authorized staff only.</p>
+          </div>
+          <ul class="customer-grid">
+          <li class="customer glass">
+            <span class="avatar" aria-hidden="true">JC</span>
+            <div><h3>Juan Dela Cruz</h3><p>Naic</p></div>
+            <dl><div><dt>Visits</dt><dd>6</dd></div><div><dt>Next booking</dt><dd>Today · 2:00 PM</dd></div></dl>
+          </li>
+          <li class="customer glass">
+            <span class="avatar" aria-hidden="true">AR</span>
+            <div><h3>Ana Reyes</h3><p>Capipisa, Tanza</p></div>
+            <dl><div><dt>Visits</dt><dd>12</dd></div><div><dt>Next booking</dt><dd>Today · 9:30 AM</dd></div></dl>
+          </li>
+          <li class="customer glass">
+            <span class="avatar" aria-hidden="true">MS</span>
+            <div><h3>Miguel Santos</h3><p>Naic</p></div>
+            <dl><div><dt>Visits</dt><dd>9</dd></div><div><dt>Next booking</dt><dd>Today · 5:30 PM</dd></div></dl>
+          </li>
+          <li class="customer glass">
+            <span class="avatar" aria-hidden="true">PB</span>
+            <div><h3>Paolo Bautista</h3><p>General Trias</p></div>
+            <dl><div><dt>Visits</dt><dd>7</dd></div><div><dt>Next booking</dt><dd>Today · 12:30 PM</dd></div></dl>
+          </li>
+          <li class="customer glass">
+            <span class="avatar" aria-hidden="true">BC</span>
+            <div><h3>Bea Castillo</h3><p>Capipisa, Tanza</p></div>
+            <dl><div><dt>Visits</dt><dd>4</dd></div><div><dt>Next booking</dt><dd>Today · 4:00 PM</dd></div></dl>
+          </li>
+          <li class="customer glass">
+            <span class="avatar" aria-hidden="true">LR</span>
+            <div><h3>Liza Ramos</h3><p>Festival Mall, Alabang</p></div>
+            <dl><div><dt>Visits</dt><dd>2</dd></div><div><dt>Next booking</dt><dd>Today · 2:30 PM</dd></div></dl>
+          </li>
+          </ul>
+        </section>
+
+        <section id="reports" aria-labelledby="reports-title">
+          <div class="dash__title">
+            <div class="stack">
+              <h2 id="reports-title">Reservation reports</h2>
+              <p class="muted">Week of October 5 to October 11, 2026 · 80 reservations</p>
+            </div>
+            <button class="btn btn--secondary" type="button"><span class="icon i-download" aria-hidden="true"></span> Export report</button>
+          </div>
+          <div class="report-grid">
+            <article class="report glass report--wide">
+              <h3>Reservations per day</h3>
+              <ul class="columns" style="--count: 7">
+            <li><b>9</b><i style="--v: 53%"></i><span>Mon</span></li>
+            <li><b>8</b><i style="--v: 47%"></i><span>Tue</span></li>
+            <li><b>10</b><i style="--v: 59%"></i><span>Wed</span></li>
+            <li><b>11</b><i style="--v: 65%"></i><span>Thu</span></li>
+            <li><b>17</b><i style="--v: 100%"></i><span>Fri</span></li>
+            <li class="is-today"><b>12</b><i style="--v: 71%"></i><span>Sat</span></li>
+            <li><b>13</b><i style="--v: 76%"></i><span>Sun</span></li>
+              </ul>
+            </article>
+
+            <article class="report glass">
+              <h3>By branch</h3>
+              <ul class="hbars">
+            <li><span>Capipisa, Tanza</span><span class="track"><i style="--v: 100%"></i></span><b>18</b></li>
+            <li><span>SM City Tanza</span><span class="track"><i style="--v: 83%"></i></span><b>15</b></li>
+            <li><span>Naic</span><span class="track"><i style="--v: 78%"></i></span><b>14</b></li>
+            <li><span>General Trias</span><span class="track"><i style="--v: 61%"></i></span><b>11</b></li>
+            <li><span>Trece Martires</span><span class="track"><i style="--v: 56%"></i></span><b>10</b></li>
+            <li><span>Kawit</span><span class="track"><i style="--v: 39%"></i></span><b>7</b></li>
+            <li><span>Festival Mall</span><span class="track"><i style="--v: 28%"></i></span><b>5</b></li>
+              </ul>
+            </article>
+
+            <article class="report glass">
+              <h3>By status</h3>
+              <div class="donut-row">
+                <div class="donut" style="--a: 82.5%; --b: 92.5%" data-total="80" role="img" aria-label="80 reservations: 66 confirmed, 8 awaiting review, 6 cancelled"></div>
+                <ul class="donut-legend">
+                  <li><span class="swatch" style="--c: var(--white)"></span> Confirmed <b>66</b></li>
+                  <li><span class="swatch" style="--c: var(--latte)"></span> Awaiting review <b>8</b></li>
+                  <li><span class="swatch" style="--c: var(--brown-500)"></span> Cancelled <b>6</b></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="report glass report--wide">
+              <h3>Busiest times</h3>
+              <ul class="columns" style="--count: 6">
+            <li><b>8</b><i style="--v: 44%"></i><span>9–11 AM</span></li>
+            <li><b>16</b><i style="--v: 89%"></i><span>11 AM–1 PM</span></li>
+            <li><b>14</b><i style="--v: 78%"></i><span>1–3 PM</span></li>
+            <li class="is-today"><b>18</b><i style="--v: 100%"></i><span>3–5 PM</span></li>
+            <li><b>15</b><i style="--v: 83%"></i><span>5–7 PM</span></li>
+            <li><b>9</b><i style="--v: 50%"></i><span>7–9 PM</span></li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="controls" aria-labelledby="controls-title">
+          <div class="dash__title">
+            <div class="stack">
+              <h2 id="controls-title">Admin controls</h2>
+              <p class="muted">Settings that apply to every new reservation request.</p>
+            </div>
+          </div>
+          <form class="stack--lg" action="#controls">
+            <div class="control-grid">
+              <fieldset class="control glass fieldset control--wide">
+                <legend class="control__head"><span class="icon-badge"><span class="icon i-users" aria-hidden="true"></span></span><span class="fieldset__title">Branch capacity</span></legend>
+            <div class="capacity-row">
+              <label for="cap-0">Capipisa, Tanza<small>Seats per sitting</small></label>
+              <input class="input" id="cap-0" name="capacity-0" type="number" min="1" max="200" value="40" inputmode="numeric">
+            </div>
+            <div class="capacity-row">
+              <label for="cap-1">Naic<small>Seats per sitting</small></label>
+              <input class="input" id="cap-1" name="capacity-1" type="number" min="1" max="200" value="30" inputmode="numeric">
+            </div>
+            <div class="capacity-row">
+              <label for="cap-2">General Trias<small>Seats per sitting</small></label>
+              <input class="input" id="cap-2" name="capacity-2" type="number" min="1" max="200" value="32" inputmode="numeric">
+            </div>
+            <div class="capacity-row">
+              <label for="cap-3">Kawit<small>Seats per sitting</small></label>
+              <input class="input" id="cap-3" name="capacity-3" type="number" min="1" max="200" value="28" inputmode="numeric">
+            </div>
+            <div class="capacity-row">
+              <label for="cap-4">Trece Martires<small>Seats per sitting</small></label>
+              <input class="input" id="cap-4" name="capacity-4" type="number" min="1" max="200" value="30" inputmode="numeric">
+            </div>
+            <div class="capacity-row">
+              <label for="cap-5">SM City Tanza<small>Seats per sitting</small></label>
+              <input class="input" id="cap-5" name="capacity-5" type="number" min="1" max="200" value="24" inputmode="numeric">
+            </div>
+            <div class="capacity-row">
+              <label for="cap-6">Festival Mall, Alabang<small>Seats per sitting</small></label>
+              <input class="input" id="cap-6" name="capacity-6" type="number" min="1" max="200" value="20" inputmode="numeric">
+            </div>
+              </fieldset>
+
+              <fieldset class="control glass fieldset">
+                <legend class="control__head"><span class="icon-badge"><span class="icon i-clock" aria-hidden="true"></span></span><span class="fieldset__title">Booking rules</span></legend>
+                <div class="field">
+                  <label class="field__label" for="rule-duration">Default visit length</label>
+                  <select class="select" id="rule-duration" name="duration">
+                    <option>1 hour</option>
+                    <option selected>1 hour 30 minutes</option>
+                    <option>2 hours</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="rule-party">Largest party per request</label>
+                  <input class="input" id="rule-party" name="party" type="number" min="1" max="50" value="12" inputmode="numeric">
+                </div>
+                <div class="field">
+                  <label class="field__label" for="rule-lead">Minimum notice (hours)</label>
+                  <input class="input" id="rule-lead" name="lead" type="number" min="0" max="72" value="2" inputmode="numeric">
+                </div>
+              </fieldset>
+
+              <fieldset class="control glass fieldset">
+                <legend class="control__head"><span class="icon-badge"><span class="icon i-shield" aria-hidden="true"></span></span><span class="fieldset__title">Staff access</span></legend>
+                <label class="toggle" for="perm-admin">
+                  <span><strong>Administrators</strong><small>See and manage every branch</small></span>
+                  <input id="perm-admin" type="checkbox" checked>
+                  <span class="toggle__switch" aria-hidden="true"></span>
+                </label>
+                <label class="toggle" for="perm-manager">
+                  <span><strong>Branch managers</strong><small>Approve requests for their branch</small></span>
+                  <input id="perm-manager" type="checkbox" checked>
+                  <span class="toggle__switch" aria-hidden="true"></span>
+                </label>
+                <label class="toggle" for="perm-staff">
+                  <span><strong>Floor staff</strong><small>View today’s schedule only</small></span>
+                  <input id="perm-staff" type="checkbox">
+                  <span class="toggle__switch" aria-hidden="true"></span>
+                </label>
+                <label class="toggle" for="rule-auto">
+                  <span><strong>Auto-confirm small parties</strong><small>Parties of 2 or fewer</small></span>
+                  <input id="rule-auto" type="checkbox">
+                  <span class="toggle__switch" aria-hidden="true"></span>
+                </label>
+              </fieldset>
+
+              <fieldset class="control glass fieldset control--wide">
+                <legend class="control__head"><span class="icon-badge"><span class="icon i-calendar" aria-hidden="true"></span></span><span class="fieldset__title">Closure dates</span></legend>
+                <div class="fields">
+                  <div class="field">
+                    <label class="field__label" for="close-date">Date</label>
+                    <input class="input" id="close-date" name="close-date" type="date">
+                  </div>
+                  <div class="field">
+                    <label class="field__label" for="close-branch">Branch</label>
+                    <select class="select" id="close-branch" name="close-branch">
+                      <option>All branches</option>
+                      <option>Capipisa, Tanza</option>
+                      <option>Naic</option>
+                      <option>General Trias</option>
+                      <option>Kawit</option>
+                      <option>Trece Martires</option>
+                      <option>SM City Tanza</option>
+                      <option>Festival Mall, Alabang</option>
+                    </select>
+                  </div>
+                </div>
+                <ul class="aside-list">
+                  <li><span class="icon i-ban" aria-hidden="true"></span><div><strong>December 25, 2026</strong> · All branches</div></li>
+                  <li><span class="icon i-ban" aria-hidden="true"></span><div><strong>January 1, 2027</strong> · All branches</div></li>
+                </ul>
+              </fieldset>
+            </div>
+
+            <div class="save-bar glass">
+              <p>Changes apply to new reservation requests only.</p>
+              <div class="cluster">
+                <button class="btn btn--secondary" type="reset">Reset</button>
+                <button class="btn btn--primary btn--lg" type="submit"><span class="icon i-check" aria-hidden="true"></span> Save changes</button>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="stack">
+          <p class="eyebrow">Café BLK &amp; BRWN</p>
+          <h2>Slow down. <span class="accent">Sip better.</span></h2>
+          <p>Warm cups. Good food. Familiar places.</p>
+        </div>
+        <nav aria-label="Explore">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="menu.html">Menu and prices</a></li>
+            <li><a href="branches.html">Branches and hours</a></li>
+            <li><a href="reserve.html">Reserve a table</a></li>
+            <li><a href="track.html">Reservation status</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h3>Let’s connect</h3>
+          <ul>
+            <li><a href="tel:+639270073822"><span class="icon i-phone" aria-hidden="true"></span> +63 927 007 3822</a></li>
+            <li><a href="mailto:cafeblkandbrwn@gmail.com"><span class="icon i-mail" aria-hidden="true"></span> cafeblkandbrwn@gmail.com</a></li>
+            <li><a href="https://web.facebook.com/cafeblkandbrwn" target="_blank" rel="noopener"><span class="icon i-facebook" aria-hidden="true"></span> Facebook</a></li>
+            <li><a href="https://www.instagram.com/cafeblkandbrwn/" target="_blank" rel="noopener"><span class="icon i-instagram" aria-hidden="true"></span> Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Café BLK &amp; BRWN. All rights reserved.</span>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="staff.html">Staff access</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
