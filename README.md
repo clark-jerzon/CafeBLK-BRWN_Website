@@ -2,6 +2,14 @@
 
 Website for **Café BLK & BRWN**, a coffee shop in Tanza, Cavite with seven branches across Cavite and Metro Manila. Built for the *Web Development Project, Phase 1* using plain HTML and CSS. The site has no JavaScript: every page is static content, and the mobile menu is built with CSS only.
 
+Built by:  Herrera, Clark Jerzon
+           Cuajao, Stephanie
+           De Guzman, Ramlei Cyrus
+           Litana, John Michael
+           Magtangib, Jiano Freo
+           Nucos, Ericka
+           with AI assistance (Claude) for code and layout.
+
 **Live site:** https://clark-jerzon.github.io/CafeBLK-BRWN_Website/
 
 ## Pages
