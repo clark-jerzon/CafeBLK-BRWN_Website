@@ -1,6 +1,6 @@
 # Café BLK & BRWN Website
 
-Website for **Café BLK & BRWN**, a coffee shop in Tanza, Cavite with seven branches across Cavite and Metro Manila. Built for the *Web Development Project, Phase 1* using plain HTML, CSS and JavaScript.
+Website for **Café BLK & BRWN**, a coffee shop in Tanza, Cavite with seven branches across Cavite and Metro Manila. Built for the *Web Development Project, Phase 1* using plain HTML and CSS. The site has no JavaScript: every page is static content, and the mobile menu is built with CSS only.
 
 **Live site:** https://clark-jerzon.github.io/CafeBLK-BRWN_Website/
 
@@ -34,7 +34,6 @@ CafeBLK-BRWN_Website/
 ├── staff.html            Staff dashboard
 ├── privacy.html          Privacy notice
 ├── style.css             Main stylesheet
-├── script.js             Main JavaScript file
 ├── assets/
 │   ├── fonts/            DM Sans and Playfair Display (SIL OFL)
 │   ├── icons/            SVG icon set
@@ -56,7 +55,7 @@ Repository **Settings → Pages → Source: `main` branch, `/ (root)` → Save**
 
 ## Design system
 
-The look is black, brown and white glassmorphism: frosted translucent panels over a warm brown gradient, with a white-to-cream gradient reserved for the primary call to action.
+The look is glassmorphism in black, brown, white and light khaki: frosted translucent panels over a warm brown gradient, a light khaki call-to-action band and footer so the pages are not one flat dark tone, and a white-to-cream gradient reserved for the primary call to action.
 
 | Principle | How it is applied |
 |---|---|
@@ -64,18 +63,27 @@ The look is black, brown and white glassmorphism: frosted translucent panels ove
 | **Scale and proximity** | An 8-point spacing scale (`--space-1` to `--space-9`). Related items sit 4 to 16 px apart, groups 24 to 32 px, sections 72 px or more. |
 | **Typography scale** | A 1.25 modular scale (`--step--1` to `--step-6`). Headings use Playfair Display, interface text uses DM Sans. Nothing is smaller than 13 px and body text is 16 px with a 62-character line length. |
 | **Scanning pattern** | Z-pattern on the home page (logo, navigation, hero text, image, call to action). F-pattern on the menu, branches and dashboard: left-aligned headings, key facts at the start of each row. |
-| **Responsive behaviour** | Fluid grids with breakpoints at 1100, 900, 720 and 480 px. Navigation collapses to a menu button, dashboard tables become stacked cards, and touch targets are at least 44 px. |
+| **Responsive behaviour** | Fluid grids with breakpoints at 1100, 900, 720 and 480 px. Navigation collapses to a menu button below 1100 px (a CSS-only checkbox toggle, no JavaScript), dashboard tables become stacked cards, and touch targets are at least 44 px. |
 | **Icons** | SVG icons used only where they aid scanning (status, contact, process steps), inherited from text colour. |
-| **Progress indication** | The reservation form and reservation status page both show a progress bar and numbered steps at the top. |
+| **Progress indication** | The reservation form lists its three steps at the top, and the reservation status page shows a progress bar with numbered stages. |
 
 Forms follow the same rules: one visual style for every field, input types that match the data (email, tel, date, time, number), a country prefix on the phone field, and labels above fields.
 
-## Content notes for the team
+## Content notes
 
 - Reservation and inquiry forms open the visitor's email app with the details filled in (a `mailto:` action), so they work on static hosting without a server.
-- The staff dashboard, reservation status and customer records are **static content** written in HTML. They show how the finished system will look. Approve, decline, save and export buttons are not wired to a database yet; that comes with the interactivity phase.
-- Seven food prices (Nachos, Chicken Fajita Roll, Hash and Egg, Gochujang Pork, Quesadilla, Tuna Pasta, Bacon and Pancakes) are estimates and should be confirmed with the café. The other food prices come from the café's Tanza and Naic delivery listings and may differ in-store.
-- Operating hours for Kawit (regular hours) and Festival Mall, Alabang were not supplied, so those cards ask visitors to contact the branch.
+- The staff dashboard, reservation status and customer records are static content written in HTML. Approve, decline, save and export buttons are visual only because the project leaves interactivity out.
+- All menu prices are in Philippine pesos (₱) and may vary by branch.
+- Operating hours for Kawit (regular hours) and Festival Mall, Alabang are not listed, so those cards ask visitors to contact the branch.
+
+## Final checklist
+
+| Task | Status |
+|---|---|
+| Website loads correctly | ✓ |
+| Responsive layout (mobile-friendly) | ✓ Checked at 1440, 1024, 820 and 390 px |
+| Navigation and links work | ✓ Every internal link, anchor and asset resolves |
+| Semantic HTML (`header`, `nav`, `main`, `section`, `footer`) | ✓ |
 
 ## Credits
 
