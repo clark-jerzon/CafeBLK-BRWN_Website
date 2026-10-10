@@ -41,9 +41,9 @@
 /* 02. DESIGN TOKENS -------------------------------------------------------- */
 
 :root {
-  /* Colour: black, brown and white only.
-     Brown is used as a gradient family so glass surfaces always have warm
-     colour behind them to blur. */
+  /* Colour: black, brown and white, lifted with a light khaki family so the
+     pages are not one flat dark brown. Brown is used as a gradient family so
+     glass surfaces always have warm colour behind them to blur. */
   --black:       #0b0806;
   --espresso:    #170f09;
   --brown-900:   #261710;
@@ -53,17 +53,26 @@
   --latte:       #e2c3a3;
   --white:       #ffffff;
 
+  /* Light khaki family: used for the call-to-action band, the footer and the
+     tinted glass cards. Dark text (--espresso) sits on the lightest tones. */
+  --khaki-100:   #f4ecdc;
+  --khaki-200:   #e8d9bc;
+  --khaki-300:   #d6bf96;
+  --khaki-400:   #c2a578;
+  --khaki-600:   #8c6b45;
+
   --text:        rgba(255, 255, 255, 0.96);
   --text-muted:  rgba(255, 255, 255, 0.74);
   --text-faint:  rgba(255, 255, 255, 0.56);
   --line:        rgba(255, 255, 255, 0.16);
   --line-strong: rgba(255, 255, 255, 0.28);
 
-  --glass-bg:    linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.04));
-  --glass-solid: rgba(38, 25, 17, 0.92);          /* fallback without blur */
+  --glass-bg:    linear-gradient(135deg, rgba(244, 236, 220, 0.18), rgba(214, 191, 150, 0.07));
+  --glass-solid: rgba(58, 40, 27, 0.94);          /* fallback without blur */
   --brown-gradient: linear-gradient(135deg, #7a4e2d 0%, #4a2f1d 55%, #261710 100%);
   --caramel-gradient: linear-gradient(135deg, #e2c3a3 0%, #b9824f 100%);
   --cta-gradient: linear-gradient(135deg, #ffffff 0%, #f1dfcc 100%);
+  --khaki-gradient: linear-gradient(135deg, #f1e6cf 0%, #d9c29b 55%, #c2a578 100%);
 
   /* Typography: modular scale, ratio 1.25 (major third), base 16px.
      The three largest steps are fluid between phone and desktop. */
@@ -121,7 +130,7 @@ body {
   min-height: 100vh;
   font: 400 var(--step-0)/1.65 var(--font-body);
   color: var(--text);
-  background: var(--black);
+  background: #2a1b12;
   overflow-x: hidden;
 }
 
@@ -132,10 +141,10 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(55% 45% at 88% 4%,  rgba(185, 130, 79, 0.50), transparent 70%),
-    radial-gradient(45% 40% at 4% 38%,  rgba(122, 78, 45, 0.50), transparent 70%),
-    radial-gradient(60% 50% at 96% 96%, rgba(74, 47, 29, 0.85),  transparent 70%),
-    linear-gradient(180deg, #0b0806 0%, #1a1009 55%, #0b0806 100%);
+    radial-gradient(55% 45% at 90% 2%,  rgba(214, 191, 150, 0.42), transparent 70%),
+    radial-gradient(50% 42% at 2% 40%,  rgba(194, 165, 120, 0.30), transparent 70%),
+    radial-gradient(60% 50% at 96% 96%, rgba(140, 107, 69, 0.55),  transparent 70%),
+    linear-gradient(180deg, #1f140d 0%, #36251a 50%, #241810 100%);
 }
 
 img { display: block; max-width: 100%; height: auto; }
@@ -187,6 +196,12 @@ p { color: var(--text-muted); max-width: 62ch; }          /* readable line lengt
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  /* The gradient only paints inside the element box, so give italic swashes and
+     descenders (the p in "Sip") room, then cancel the extra space with margins. */
+  padding: 0.06em 0.14em 0.18em 0.08em;
+  margin: -0.06em -0.14em -0.18em -0.08em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 
@@ -338,6 +353,9 @@ p { color: var(--text-muted); max-width: 62ch; }          /* readable line lengt
 }
 .card { padding: var(--space-6); }
 .card > * + * { margin-top: var(--space-4); }
+/* Cards placed in a grid list stack their content instead of sitting in a row. */
+.grid > li.card { flex-direction: column; align-items: flex-start; }
+.grid > li.card > * { flex: none; }
 
 /* Framed photo used beside text blocks. */
 .photo-frame { padding: var(--space-3); }
@@ -348,23 +366,36 @@ p { color: var(--text-muted); max-width: 62ch; }          /* readable line lengt
 .section-head--flush { margin-bottom: 0; }
 .page-intro__actions { margin-top: var(--space-5); }
 
-/* Brown gradient band for the closing call to action on a page. */
+/* Light khaki band for the call to action on a page. It is the lightest block
+   on the page, so it uses dark text and a dark primary button. */
 .band {
   position: relative;
   overflow: hidden;
   padding: var(--space-7);
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: var(--radius-lg);
   background:
-    radial-gradient(60% 120% at 100% 100%, rgba(226, 195, 163, 0.35), transparent 70%),
-    var(--brown-gradient);
+    radial-gradient(60% 120% at 100% 100%, rgba(255, 255, 255, 0.45), transparent 70%),
+    var(--khaki-gradient);
   box-shadow: var(--shadow-glass);
+  color: var(--espresso);
 }
 .band .cluster { margin-top: var(--space-5); }
+.band h2, .band h3, .band .lead, .band .steps__item strong { color: var(--espresso); }
+.band p, .band .steps__item span { color: #4a2f1d; }
+.band .eyebrow, .band .text-link { color: var(--brown-700); }
+.band .text-link:hover { color: var(--black); border-bottom-color: var(--black); }
+.band .accent { background: linear-gradient(135deg, #7a4e2d, #4a2f1d); -webkit-background-clip: text; background-clip: text; }
+.band .glass { background: rgba(255, 255, 255, 0.42); border-color: rgba(255, 255, 255, 0.7); box-shadow: 0 12px 32px rgba(74, 47, 29, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.7); }
+.band .steps__item::before { background: var(--brown-700); border-color: transparent; color: var(--khaki-100); }
+.band .btn--primary { background: var(--brown-gradient); color: var(--white); box-shadow: 0 10px 26px rgba(38, 23, 16, 0.35); }
+.band .btn--secondary { background: rgba(255, 255, 255, 0.4); border-color: rgba(74, 47, 29, 0.35); color: var(--espresso); }
+.band .btn--secondary:hover { background: rgba(255, 255, 255, 0.65); }
 
 /* Icon in a round glass badge, used to lead cards. */
 .icon-badge {
   display: inline-grid;
+  flex: none;
   place-items: center;
   width: 48px;
   height: 48px;
@@ -391,13 +422,13 @@ p { color: var(--text-muted); max-width: 62ch; }          /* readable line lengt
   gap: var(--space-5);
   border: 1px solid var(--line);
   border-radius: var(--radius-pill);
-  background: rgba(20, 13, 9, 0.62);
+  background: rgba(54, 37, 26, 0.66);
   backdrop-filter: blur(24px) saturate(150%);
   -webkit-backdrop-filter: blur(24px) saturate(150%);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
-.brand { display: flex; align-items: center; gap: var(--space-3); white-space: nowrap; }
+.brand { display: flex; flex: none; align-items: center; gap: var(--space-3); white-space: nowrap; }
 .brand img { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line-strong); }
 .brand__name { display: block; font: 700 var(--step-1)/1.1 var(--font-body); letter-spacing: 0.01em; }
 .brand__tag { display: block; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.16em; color: var(--latte); }
@@ -411,13 +442,21 @@ p { color: var(--text-muted); max-width: 62ch; }          /* readable line lengt
   border-radius: var(--radius-pill);
   font-size: 0.9375rem;
   font-weight: 500;
+  white-space: nowrap;
   color: var(--text-muted);
   transition: background-color 0.2s, color 0.2s;
 }
 .site-nav a:hover { color: var(--white); background: rgba(255, 255, 255, 0.1); }
+/* The reserve button inside the menu keeps its own dark-on-light colours. */
+.site-nav .btn--primary, .site-nav .btn--primary:hover { background: var(--cta-gradient); color: var(--black); font-weight: 700; }
 .site-nav a[aria-current="page"] { color: var(--white); background: rgba(255, 255, 255, 0.16); font-weight: 700; }
 
+.btn--header { flex: none; white-space: nowrap; }
 .nav-cta { display: none; }
+
+/* Mobile menu without JavaScript: a visually hidden checkbox holds the open or
+   closed state and the label next to it is the visible button. */
+.nav-check { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 .nav-toggle {
   display: none;
   align-items: center;
@@ -429,13 +468,14 @@ p { color: var(--text-muted); max-width: 62ch; }          /* readable line lengt
   background: rgba(255, 255, 255, 0.08);
   cursor: pointer;
 }
+.nav-check:focus-visible ~ .nav-toggle { outline: 3px solid var(--white); outline-offset: 3px; }
 
 
 /* 10. HERO ----------------------------------------------------------------- */
 
 .hero { position: relative; padding-block: var(--space-8) var(--space-7); }
 .hero__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: var(--space-7); align-items: center; }
-.hero h1 { font-size: var(--step-6); line-height: 1.02; letter-spacing: -0.04em; }
+.hero h1 { font-size: var(--step-6); line-height: 1.1; letter-spacing: -0.035em; }
 .hero__copy > * + * { margin-top: var(--space-5); }
 .hero__copy .lead { max-width: 34ch; }
 
@@ -454,17 +494,18 @@ p { color: var(--text-muted); max-width: 62ch; }          /* readable line lengt
 .hero__caption {
   position: absolute;
   left: var(--space-5);
-  right: var(--space-5);
   bottom: var(--space-5);
-  padding: var(--space-4) var(--space-5);
+  max-width: 52%;
+  padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md);
-  background: rgba(15, 9, 6, 0.55);
+  background: rgba(36, 24, 16, 0.58);
 }
-.hero__caption p { font: 600 var(--step-2)/1.2 var(--font-heading); color: var(--white); }
+.hero__caption p { font: 600 var(--step-1)/1.25 var(--font-heading); color: var(--white); }
 
 /* Three short reassurance points under the hero. */
 .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
-.fact { display: flex; gap: var(--space-4); align-items: flex-start; padding: var(--space-5); }
+.fact { display: flex; gap: var(--space-4); align-items: flex-start; padding: var(--space-5); background: linear-gradient(135deg, rgba(232, 217, 188, 0.26), rgba(194, 165, 120, 0.10)); }
+.fact > div { min-width: 0; }
 .fact h3 { font-size: var(--step-1); margin-bottom: var(--space-1); }
 .fact p { font-size: 0.9375rem; }
 
@@ -518,6 +559,7 @@ p { color: var(--text-muted); max-width: 62ch; }          /* readable line lengt
   color: var(--latte);
 }
 .steps--spaced { margin-top: var(--space-4); }
+.flow .steps__item { align-items: center; }
 .steps__item strong { display: block; color: var(--white); line-height: 1.3; }
 .steps__item span { display: block; font-size: 0.9375rem; color: var(--text-muted); }
 .steps__item.is-done::before { content: "\2713"; background: var(--caramel-gradient); border-color: transparent; color: var(--black); }
@@ -564,7 +606,7 @@ p { color: var(--text-muted); max-width: 62ch; }          /* readable line lengt
 .menu-grid > li, .branch-grid > li, .grid > li { display: flex; }
 .menu-grid > li > *, .branch-grid > li > *, .grid > li > * { flex: 1; min-width: 0; }
 
-.menu-card { position: relative; display: flex; flex-direction: column; padding: var(--space-3); border-radius: var(--radius-md); transition: transform 0.25s ease, border-color 0.25s ease; }
+.menu-card { position: relative; display: flex; flex-direction: column; padding: var(--space-3); border-radius: var(--radius-md); background: linear-gradient(160deg, rgba(232, 217, 188, 0.20), rgba(140, 107, 69, 0.14)); transition: transform 0.25s ease, border-color 0.25s ease; }
 .menu-card:hover { transform: translateY(-4px); border-color: var(--line-strong); }
 .menu-card__photo { position: relative; }
 .menu-card__photo img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-sm); }
@@ -683,8 +725,8 @@ p { color: var(--text-muted); max-width: 62ch; }          /* readable line lengt
 .table-wrap { overflow-x: auto; border-radius: var(--radius-md); }
 .data-table { font-size: 0.9375rem; text-align: left; }
 .data-table caption { padding: 0 0 var(--space-3); text-align: left; font-size: 0.9375rem; color: var(--text-muted); }
-.data-table th { padding: var(--space-3) var(--space-4); font-size: var(--step--1); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--latte); border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
-.data-table td { padding: var(--space-4); border-bottom: 1px solid var(--line); vertical-align: middle; }
+.data-table th { padding: var(--space-3) var(--space-3); font-size: var(--step--1); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--latte); border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+.data-table td { padding: var(--space-4) var(--space-3); border-bottom: 1px solid var(--line); vertical-align: middle; }
 .data-table tbody tr:last-child td { border-bottom: 0; }
 .data-table tbody tr:hover { background: rgba(255, 255, 255, 0.05); }
 .data-table td:nth-child(2), .data-table td:nth-child(4) { white-space: nowrap; }
@@ -699,7 +741,9 @@ p { color: var(--text-muted); max-width: 62ch; }          /* readable line lengt
 .status--pending   { background: var(--caramel-gradient); color: var(--black); }
 .status--cancelled { background: transparent; color: var(--text-muted); border: 1px solid var(--line-strong); }
 
-.row-actions { display: flex; gap: var(--space-2); }
+.row-actions { display: flex; flex-wrap: nowrap; gap: var(--space-2); }
+.row-actions .btn--sm { padding-inline: 0.85rem; }
+.btn--icon { width: 40px; padding-inline: 0; }
 
 
 /* 17. ADMIN DASHBOARD ------------------------------------------------------ */
@@ -796,16 +840,20 @@ p { color: var(--text-muted); max-width: 62ch; }          /* readable line lengt
 
 /* 18. FOOTER --------------------------------------------------------------- */
 
-.site-footer { margin-top: var(--space-8); padding-block: var(--space-8) var(--space-5); border-top: 1px solid var(--line); background: linear-gradient(180deg, rgba(38, 23, 16, 0.5), rgba(11, 8, 6, 0.95)); }
+.site-footer { margin-top: var(--space-8); padding-block: var(--space-8) var(--space-5); border-top: 1px solid rgba(255, 255, 255, 0.6); background: linear-gradient(180deg, var(--khaki-200) 0%, var(--khaki-300) 100%); color: var(--espresso); }
+.site-footer h2, .site-footer h3 { color: var(--espresso); }
+.site-footer p { color: #4a2f1d; }
+.site-footer .eyebrow { color: var(--brown-700); }
+.site-footer .accent { background: linear-gradient(135deg, #7a4e2d, #4a2f1d); -webkit-background-clip: text; background-clip: text; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--space-7); }
 .footer-grid h2 { font-size: var(--step-3); }
-.footer-grid h3 { margin-bottom: var(--space-3); font: 700 var(--step--1)/1.4 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--latte); }
-.footer-grid li a { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 36px; color: var(--text-muted); overflow-wrap: anywhere; }
-.footer-grid li a:hover { color: var(--white); }
+.footer-grid h3 { margin-bottom: var(--space-3); font: 700 var(--step--1)/1.4 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--brown-700); }
+.footer-grid li a { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 36px; color: #3a2718; overflow-wrap: anywhere; }
+.footer-grid li a:hover { color: var(--black); text-decoration: underline; text-underline-offset: 3px; }
 .footer-grid .stack p { font-size: 0.9375rem; }
-.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-3) var(--space-5); margin-top: var(--space-7); padding-top: var(--space-5); border-top: 1px solid var(--line); font-size: 0.875rem; color: var(--text-faint); }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-3) var(--space-5); margin-top: var(--space-7); padding-top: var(--space-5); border-top: 1px solid rgba(74, 47, 29, 0.28); font-size: 0.875rem; color: #4a2f1d; }
 .footer-bottom ul { display: flex; gap: var(--space-5); }
-.footer-bottom a:hover { color: var(--white); }
+.footer-bottom a:hover { color: var(--black); text-decoration: underline; text-underline-offset: 3px; }
 
 /* Prose pages (privacy). */
 .prose { max-width: 70ch; }
@@ -816,33 +864,32 @@ p { color: var(--text-muted); max-width: 62ch; }          /* readable line lengt
 
 
 /* 19. RESPONSIVE BEHAVIOUR ------------------------------------------------- */
-/* Breakpoints: 1100 (small laptops and tablets landscape), 900 (navigation
-   collapses), 720 (tablets portrait and phones), 480 (small phones).
+/* Breakpoints: 1100 (navigation collapses to a menu button), 900 (grids stack), 720 (tablets portrait and phones), 480 (small phones).
    Grids that use auto-fill/auto-fit reflow on their own between these. */
 
 @media (max-width: 1100px) {
+  :root { --header-h: 76px; }
   .dash { grid-template-columns: minmax(0, 1fr); }
-  .dash__nav { position: sticky; top: calc(var(--header-h) + var(--space-3)); z-index: 20; padding: var(--space-2); border-radius: var(--radius-pill); background: rgba(20, 13, 9, 0.82); }
+  .dash__nav { position: sticky; top: calc(var(--header-h) + var(--space-3)); z-index: 20; padding: var(--space-2); border-radius: var(--radius-pill); background: rgba(54, 37, 26, 0.86); }
   .dash__nav ul { display: flex; gap: var(--space-1); overflow-x: auto; }
   .dash__nav a { white-space: nowrap; padding-inline: var(--space-4); }
   .mini-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer-grid { gap: var(--space-6); }
-}
 
-@media (max-width: 900px) {
-  :root { --header-h: 76px; }
+  /* Navigation collapses to a menu button. The checkbox state shows or hides it. */
   .site-header { border-radius: var(--radius-lg); flex-wrap: wrap; padding: var(--space-3) var(--space-4); }
   .site-header .btn--header { display: none; }
-  .js .nav-toggle { display: inline-flex; margin-left: auto; }
-  .site-nav { order: 3; width: 100%; }
+  .nav-toggle { display: inline-flex; margin-left: auto; }
+  .site-nav { display: none; order: 3; width: 100%; }
+  .nav-check:checked ~ .site-nav { display: block; }
+  .nav-check:checked ~ .nav-toggle .i-menu { --icon: url("assets/icons/x.svg"); }
   .nav-cta { display: block; padding-top: var(--space-2); }
   .nav-cta .btn { width: 100%; }
   .site-nav ul { flex-direction: column; align-items: stretch; padding-top: var(--space-3); }
   .site-nav a { padding: 0 var(--space-4); }
-  /* Without JavaScript the menu stays open; with it, the toggle controls it. */
-  .js .site-nav { display: none; }
-  .js .site-nav.is-open { display: block; }
+}
 
+@media (max-width: 900px) {
   .hero__grid, .how, .split, .form-layout { grid-template-columns: 1fr; }
   .hero__media { max-width: 560px; }
   .facts, .grid--3 { grid-template-columns: 1fr; }

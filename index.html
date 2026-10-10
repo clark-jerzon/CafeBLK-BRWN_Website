@@ -13,12 +13,12 @@
   <link rel="icon" href="assets/images/logo.jpg">
   <link rel="preload" href="assets/fonts/PlayfairDisplay-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
+    <input class="nav-check" id="nav-check" type="checkbox" aria-label="Show or hide the menu">
     <a class="brand" href="index.html" aria-label="Café BLK &amp; BRWN, home">
       <img src="assets/images/logo.jpg" alt="" width="48" height="48">
       <span>
@@ -40,9 +40,10 @@
     </nav>
 
     <a class="btn btn--primary btn--sm btn--header" href="reserve.html"><span class="icon i-calendar" aria-hidden="true"></span> Reserve a table</a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+    <label class="nav-toggle" for="nav-check">
       <span class="icon i-menu" aria-hidden="true"></span>
-    </button>
+      <span class="visually-hidden">Menu</span>
+    </label>
   </header>
 
   <main id="main">
@@ -197,13 +198,13 @@
         <a class="text-link" href="branches.html">Hours and directions <span class="icon i-arrow-right" aria-hidden="true"></span></a>
       </div>
       <ul class="cluster">
-          <li><a class="btn btn--secondary btn--sm" href="reserve.html?branch=capipisa"><span class="icon i-map-pin" aria-hidden="true"></span> Capipisa, Tanza</a></li>
-          <li><a class="btn btn--secondary btn--sm" href="reserve.html?branch=naic"><span class="icon i-map-pin" aria-hidden="true"></span> Naic</a></li>
-          <li><a class="btn btn--secondary btn--sm" href="reserve.html?branch=general-trias"><span class="icon i-map-pin" aria-hidden="true"></span> General Trias</a></li>
-          <li><a class="btn btn--secondary btn--sm" href="reserve.html?branch=kawit"><span class="icon i-map-pin" aria-hidden="true"></span> Kawit</a></li>
-          <li><a class="btn btn--secondary btn--sm" href="reserve.html?branch=trece"><span class="icon i-map-pin" aria-hidden="true"></span> Trece Martires</a></li>
-          <li><a class="btn btn--secondary btn--sm" href="reserve.html?branch=sm-tanza"><span class="icon i-map-pin" aria-hidden="true"></span> SM City Tanza</a></li>
-          <li><a class="btn btn--secondary btn--sm" href="reserve.html?branch=alabang"><span class="icon i-map-pin" aria-hidden="true"></span> Festival Mall, Alabang</a></li>
+          <li><a class="btn btn--secondary btn--sm" href="reserve.html"><span class="icon i-map-pin" aria-hidden="true"></span> Capipisa, Tanza</a></li>
+          <li><a class="btn btn--secondary btn--sm" href="reserve.html"><span class="icon i-map-pin" aria-hidden="true"></span> Naic</a></li>
+          <li><a class="btn btn--secondary btn--sm" href="reserve.html"><span class="icon i-map-pin" aria-hidden="true"></span> General Trias</a></li>
+          <li><a class="btn btn--secondary btn--sm" href="reserve.html"><span class="icon i-map-pin" aria-hidden="true"></span> Kawit</a></li>
+          <li><a class="btn btn--secondary btn--sm" href="reserve.html"><span class="icon i-map-pin" aria-hidden="true"></span> Trece Martires</a></li>
+          <li><a class="btn btn--secondary btn--sm" href="reserve.html"><span class="icon i-map-pin" aria-hidden="true"></span> SM City Tanza</a></li>
+          <li><a class="btn btn--secondary btn--sm" href="reserve.html"><span class="icon i-map-pin" aria-hidden="true"></span> Festival Mall, Alabang</a></li>
       </ul>
     </section>
 

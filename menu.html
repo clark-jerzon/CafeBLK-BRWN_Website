@@ -13,12 +13,12 @@
   <link rel="icon" href="assets/images/logo.jpg">
   <link rel="preload" href="assets/fonts/PlayfairDisplay-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
+    <input class="nav-check" id="nav-check" type="checkbox" aria-label="Show or hide the menu">
     <a class="brand" href="index.html" aria-label="Café BLK &amp; BRWN, home">
       <img src="assets/images/logo.jpg" alt="" width="48" height="48">
       <span>
@@ -40,9 +40,10 @@
     </nav>
 
     <a class="btn btn--primary btn--sm btn--header" href="reserve.html"><span class="icon i-calendar" aria-hidden="true"></span> Reserve a table</a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+    <label class="nav-toggle" for="nav-check">
       <span class="icon i-menu" aria-hidden="true"></span>
-    </button>
+      <span class="visually-hidden">Menu</span>
+    </label>
   </header>
 
   <main id="main">
@@ -1123,8 +1124,8 @@
                 </div>
                 <div class="menu-card__body">
                   <h3>Potato Fries</h3>
-                  
-                  <p class="price"><span class="price__from">from</span> <span class="price__currency">₱</span>95</p>
+                  <p class="menu-card__note">Share size ₱145</p>
+                  <p class="price"><span class="price__currency">₱</span>95</p>
                 </div>
               </article>
             </li>
@@ -1175,8 +1176,8 @@
                 </div>
                 <div class="menu-card__body">
                   <h3>Tuna Chives</h3>
-                  
-                  <p class="price"><span class="price__from">from</span> <span class="price__currency">₱</span>105</p>
+                  <p class="menu-card__note">Add egg +₱25</p>
+                  <p class="price"><span class="price__currency">₱</span>105</p>
                 </div>
               </article>
             </li>

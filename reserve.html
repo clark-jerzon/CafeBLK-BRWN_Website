@@ -13,12 +13,12 @@
   <link rel="icon" href="assets/images/logo.jpg">
   <link rel="preload" href="assets/fonts/PlayfairDisplay-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
+    <input class="nav-check" id="nav-check" type="checkbox" aria-label="Show or hide the menu">
     <a class="brand" href="index.html" aria-label="Café BLK &amp; BRWN, home">
       <img src="assets/images/logo.jpg" alt="" width="48" height="48">
       <span>
@@ -39,9 +39,10 @@
         </ul>
     </nav>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+    <label class="nav-toggle" for="nav-check">
       <span class="icon i-menu" aria-hidden="true"></span>
-    </button>
+      <span class="visually-hidden">Menu</span>
+    </label>
   </header>
 
   <main id="main">
@@ -56,24 +57,21 @@
     <section class="container section--tight" aria-label="Reservation form">
       <div class="form-layout">
         <div class="stack--lg">
-          <!-- Progress: sits at the top of the process so people always know where they are. -->
-          <div class="flow glass" aria-label="Reservation progress">
+          <!-- Progress: the three parts of the form, shown up front so people know what to expect. -->
+          <div class="flow glass" aria-label="Reservation steps">
             <div class="flow__head">
-              <span>Step <span data-step-current>1</span> of 3</span>
-              <span data-progress-label>0% complete</span>
+              <span>3 short steps</span>
+              <span>About one minute</span>
             </div>
-            <div class="progress" role="progressbar" aria-label="Reservation form progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-progress>
-              <span class="progress__fill" data-progress-fill></span>
-            </div>
-            <ol class="steps steps--spaced" style="--count: 3">
-              <li class="steps__item is-current" data-flow-step><div><strong>Your details</strong></div></li>
-              <li class="steps__item" data-flow-step><div><strong>Your visit</strong></div></li>
-              <li class="steps__item" data-flow-step><div><strong>Review and send</strong></div></li>
+            <ol class="steps" style="--count: 3">
+              <li class="steps__item"><div><strong>Your details</strong></div></li>
+              <li class="steps__item"><div><strong>Your visit</strong></div></li>
+              <li class="steps__item"><div><strong>Review and send</strong></div></li>
             </ol>
           </div>
 
           <form class="form glass card" id="reservation-form" action="mailto:cafeblkandbrwn@gmail.com?subject=Table%20reservation%20request" method="post" enctype="text/plain">
-            <fieldset class="fieldset" data-step>
+            <fieldset class="fieldset">
               <legend class="fieldset__title"><span class="icon-badge"><span class="icon i-user" aria-hidden="true"></span></span> Your details</legend>
               <div class="fields">
                 <div class="field field--full">
@@ -95,20 +93,20 @@
               </div>
             </fieldset>
 
-            <fieldset class="fieldset" data-step>
+            <fieldset class="fieldset">
               <legend class="fieldset__title"><span class="icon-badge"><span class="icon i-calendar" aria-hidden="true"></span></span> Your visit</legend>
               <div class="fields">
                 <div class="field field--full">
                   <label class="field__label" for="r-branch">Branch</label>
                   <select class="select" id="r-branch" name="branch" required>
                     <option value="" selected disabled>Select a branch</option>
-                  <option value="Capipisa, Tanza" data-slug="capipisa">Capipisa, Tanza</option>
-                  <option value="Naic" data-slug="naic">Naic</option>
-                  <option value="General Trias" data-slug="general-trias">General Trias</option>
-                  <option value="Kawit" data-slug="kawit">Kawit</option>
-                  <option value="Trece Martires" data-slug="trece">Trece Martires</option>
-                  <option value="SM City Tanza" data-slug="sm-tanza">SM City Tanza</option>
-                  <option value="Festival Mall, Alabang" data-slug="alabang">Festival Mall, Alabang</option>
+                  <option value="Capipisa, Tanza">Capipisa, Tanza</option>
+                  <option value="Naic">Naic</option>
+                  <option value="General Trias">General Trias</option>
+                  <option value="Kawit">Kawit</option>
+                  <option value="Trece Martires">Trece Martires</option>
+                  <option value="SM City Tanza">SM City Tanza</option>
+                  <option value="Festival Mall, Alabang">Festival Mall, Alabang</option>
                   </select>
                 </div>
                 <div class="field">
@@ -134,7 +132,7 @@
               </div>
             </fieldset>
 
-            <fieldset class="fieldset" data-step>
+            <fieldset class="fieldset">
               <legend class="fieldset__title"><span class="icon-badge"><span class="icon i-clipboard" aria-hidden="true"></span></span> Review and send</legend>
               <div class="field">
                 <label class="field__label" for="r-note">Special request <small>(optional)</small></label>

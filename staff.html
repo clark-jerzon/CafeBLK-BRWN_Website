@@ -13,12 +13,12 @@
   <link rel="icon" href="assets/images/logo.jpg">
   <link rel="preload" href="assets/fonts/PlayfairDisplay-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
+    <input class="nav-check" id="nav-check" type="checkbox" aria-label="Show or hide the menu">
     <a class="brand" href="index.html" aria-label="Café BLK &amp; BRWN, home">
       <img src="assets/images/logo.jpg" alt="" width="48" height="48">
       <span>
@@ -39,9 +39,10 @@
         </ul>
     </nav>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+    <label class="nav-toggle" for="nav-check">
       <span class="icon i-menu" aria-hidden="true"></span>
-    </button>
+      <span class="visually-hidden">Menu</span>
+    </label>
   </header>
 
   <main id="main">
@@ -147,7 +148,7 @@
               <td data-label="Time">11:00 AM</td>
               <td data-label="Guests" class="num">2</td>
               <td data-label="Status"><span class="status status--pending"><span class="icon i-hourglass" aria-hidden="true"></span> Awaiting review</span></td>
-              <td data-label="Action"><div class="row-actions"><button class="btn btn--primary btn--sm" type="button"><span class="icon i-check" aria-hidden="true"></span> Approve</button><button class="btn btn--secondary btn--sm" type="button" aria-label="Decline Carla Mendoza"><span class="icon i-x" aria-hidden="true"></span></button></div></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--primary btn--sm" type="button"><span class="icon i-check" aria-hidden="true"></span> Approve</button><button class="btn btn--secondary btn--sm btn--icon" type="button" aria-label="Decline Carla Mendoza"><span class="icon i-x" aria-hidden="true"></span></button></div></td>
             </tr>
             <tr>
               <td data-label="Reference" class="ref">BNB-1010-004</td>
@@ -174,7 +175,7 @@
               <td data-label="Time">2:30 PM</td>
               <td data-label="Guests" class="num">3</td>
               <td data-label="Status"><span class="status status--pending"><span class="icon i-hourglass" aria-hidden="true"></span> Awaiting review</span></td>
-              <td data-label="Action"><div class="row-actions"><button class="btn btn--primary btn--sm" type="button"><span class="icon i-check" aria-hidden="true"></span> Approve</button><button class="btn btn--secondary btn--sm" type="button" aria-label="Decline Liza Ramos"><span class="icon i-x" aria-hidden="true"></span></button></div></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--primary btn--sm" type="button"><span class="icon i-check" aria-hidden="true"></span> Approve</button><button class="btn btn--secondary btn--sm btn--icon" type="button" aria-label="Decline Liza Ramos"><span class="icon i-x" aria-hidden="true"></span></button></div></td>
             </tr>
             <tr>
               <td data-label="Reference" class="ref">BNB-1010-007</td>
@@ -192,7 +193,7 @@
               <td data-label="Time">4:00 PM</td>
               <td data-label="Guests" class="num">4</td>
               <td data-label="Status"><span class="status status--pending"><span class="icon i-hourglass" aria-hidden="true"></span> Awaiting review</span></td>
-              <td data-label="Action"><div class="row-actions"><button class="btn btn--primary btn--sm" type="button"><span class="icon i-check" aria-hidden="true"></span> Approve</button><button class="btn btn--secondary btn--sm" type="button" aria-label="Decline Bea Castillo"><span class="icon i-x" aria-hidden="true"></span></button></div></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--primary btn--sm" type="button"><span class="icon i-check" aria-hidden="true"></span> Approve</button><button class="btn btn--secondary btn--sm btn--icon" type="button" aria-label="Decline Bea Castillo"><span class="icon i-x" aria-hidden="true"></span></button></div></td>
             </tr>
             <tr>
               <td data-label="Reference" class="ref">BNB-1010-009</td>
@@ -219,7 +220,7 @@
               <td data-label="Time">7:00 PM</td>
               <td data-label="Guests" class="num">6</td>
               <td data-label="Status"><span class="status status--pending"><span class="icon i-hourglass" aria-hidden="true"></span> Awaiting review</span></td>
-              <td data-label="Action"><div class="row-actions"><button class="btn btn--primary btn--sm" type="button"><span class="icon i-check" aria-hidden="true"></span> Approve</button><button class="btn btn--secondary btn--sm" type="button" aria-label="Decline Jerome Lim"><span class="icon i-x" aria-hidden="true"></span></button></div></td>
+              <td data-label="Action"><div class="row-actions"><button class="btn btn--primary btn--sm" type="button"><span class="icon i-check" aria-hidden="true"></span> Approve</button><button class="btn btn--secondary btn--sm btn--icon" type="button" aria-label="Decline Jerome Lim"><span class="icon i-x" aria-hidden="true"></span></button></div></td>
             </tr>
             <tr>
               <td data-label="Reference" class="ref">BNB-1010-012</td>
